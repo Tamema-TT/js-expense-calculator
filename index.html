@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jo's Expense Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/4951b7ad3b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 class="text-3xl font-semibold text-slate-700 text-center my-6"><span class="text-purple-500">Jo's</span> Expense Calculator</h1>
+    
+    <div class="w-4/12 text-right mr-20 text-xl text-red-800 ml-auto">
+        <p id="alert-neg" class="bg-red-200 rounded-lg px-8 py-2 mb-2" style="display: none;">Text</p>
+        <p id="alert-nan" class="bg-red-200 rounded-lg px-8 py-2" style="display: none;">Text</p>
+    </div>
+
+    <section class="flex mt-4 items-center">
+        <div class="w-1/2 mx-4 flex h-96 justify-center">
+            <img src="images/budget.jpg" alt="">
+        </div>
+        <div class="w-1/2 bg-slate-100 mx-20 py-2 flex flex-col items-center">
+            <h3 class="text-xl text-center font-semibold">Income</h3>
+            <div class="flex justify-center mt-4">
+                <p class="mr-4">Income:</p>
+                <input id="input-income" class="pl-4 py-0.5 bg-slate-300 number-check" type="text" placeholder="Your Income">
+            </div>
+            <h3 class="text-xl text-center font-semibold mt-4">Expenses</h3>
+            <div class="flex mt-4">
+                <div class="flex flex-col mr-2 justify-between">
+                    <p class="ml-auto mb-2">Food:</p>
+                    <p class="ml-auto mb-2">Rent:</p>
+                    <p class="ml-auto mb-2">Clothes:</p>
+                </div>
+                <div class="flex justify-between flex-col">
+                    <input id="input-food" class="pl-4 py-0.5 bg-slate-300 mb-2 number-check" type="text" placeholder="Food Expenses">
+                    <input id="input-rent" class="pl-4 py-0.5 bg-slate-300 mb-2 number-check" type="text" placeholder="Rent Expenses">
+                    <input id="input-clothes" class="pl-4 py-0.5 bg-slate-300 mb-2 number-check" type="text" placeholder="Clothes Expenses">
+                </div>
+            </div>
+
+            <button id="calculate" class="my-4 bg-purple-500 text-slate-100 px-8 py-2 rounded-lg">Calculate</button>
+
+            <div class="flex font-semibold mb-4">
+                <p class="mr-4">Total Expenses:</p>
+                <p id="total-expenses">0</p>
+            </div>
+
+            <div class="flex font-semibold">
+                <p class="mr-4">Balance:</p>
+                <p id="balance">0</p>
+            </div>
+
+            <div class="flex mb-4 items-center">
+                <div class="flex">
+                    <p class="mr-4">Save:</p>
+                    <input id="input-save" class="pl-4 py-0.5 bg-slate-300" type="text" placeholder="Percentage Value">
+                </div>
+                <div class="mx-2 text-xl">
+                    <i class="fa-solid fa-percent"></i>
+                </div>
+                <div>
+                    <button id="save" class="bg-purple-500 text-slate-100 px-8 py-2 rounded-lg">Save</button>
+                </div>
+            </div>
+
+            <div class="flex font-semibold mb-4">
+                <p class="mr-4">Saving Amount:</p>
+                <p id="saving-amount">0</p>
+            </div>
+
+            <div class="flex font-semibold">
+                <p class="mr-4">Remaining Balance:</p>
+                <p id="remaining-balance">0</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
