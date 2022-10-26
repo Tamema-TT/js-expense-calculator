@@ -4,78 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jo's Expense Calculator</title>
+    <title>Money Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/4951b7ad3b.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <h1 class="text-3xl font-semibold text-slate-700 text-center my-6"><span class="text-purple-500">Jo's</span> Expense Calculator</h1>
+<body class="bg-blue-100">
+    <header>
+        <h1 class="text-3xl font-semibold text-slate-700 text-center my-6">
+            <span class="text-[#F75D59]">Money</span> Manager
+        </h1>
+    </header>
     
-    <div class="w-4/12 text-right mr-20 text-xl text-red-800 ml-auto">
-        <p id="alert-neg" class="bg-red-200 rounded-lg px-8 py-2 mb-2" style="display: none;">Text</p>
-        <p id="alert-nan" class="bg-red-200 rounded-lg px-8 py-2" style="display: none;">Text</p>
-    </div>
+    <main class="grid lg:grid-cols-5 grid-cols-1">
+        <section class="lg:col-span-5 text-xl text-center text-red-800 mx-16">
+            <p id="alert-neg" class="bg-red-200 rounded-lg px-8 py-2 mb-4" style="display: none;">Text</p>
+            <p id="alert-nan" class="bg-red-200 rounded-lg px-8 py-2 mb-4" style="display: none;">Text</p>
+        </section>
 
-    <section class="flex mt-4 items-center">
-        <div class="w-1/2 mx-4 flex h-96 justify-center">
-            <img src="images/budget.jpg" alt="">
-        </div>
-        <div class="w-1/2 bg-slate-100 mx-20 py-2 flex flex-col items-center">
-            <h3 class="text-xl text-center font-semibold">Income</h3>
-            <div class="flex justify-center mt-4">
-                <p class="mr-4">Income:</p>
-                <input id="input-income" class="pl-4 py-0.5 bg-slate-300 number-check" type="text" placeholder="Your Income">
+        <section class="lg:col-span-2 mx-4">
+            <figure><img src="images/expense_edit.png" alt=""></figure>
+        </section>
+
+        <section class="lg:col-span-3 lg:grid flex flex-col items-center lg:grid-cols-3 px-8 rounded-lg">
+            <div class="flex flex-col col-span-3 justify-center mt-4">
+                <h3 class="text-xl text-center font-semibold">Income</h3>
+                <input id="input-income" class="pl-4 py-2 bg-slate-300 number-check rounded-md" type="text" placeholder="Enter Your Income">
             </div>
-            <h3 class="text-xl text-center font-semibold mt-4">Expenses</h3>
-            <div class="flex mt-4">
-                <div class="flex flex-col mr-2 justify-between">
-                    <p class="ml-auto mb-2">Food:</p>
-                    <p class="ml-auto mb-2">Rent:</p>
-                    <p class="ml-auto mb-2">Clothes:</p>
+            <h3 class="text-xl col-span-3 text-center font-semibold py-0">Expenses</h3>
+            <div>
+                <div class="flex justify-between mb-2" >
+                    <label for="input-food">Food:</label>
+                    <input id="input-food" class="pl-2 py-0.5 bg-slate-300 number-check rounded-md" type="text" placeholder="Food Expenses">
                 </div>
-                <div class="flex justify-between flex-col">
-                    <input id="input-food" class="pl-4 py-0.5 bg-slate-300 mb-2 number-check" type="text" placeholder="Food Expenses">
-                    <input id="input-rent" class="pl-4 py-0.5 bg-slate-300 mb-2 number-check" type="text" placeholder="Rent Expenses">
-                    <input id="input-clothes" class="pl-4 py-0.5 bg-slate-300 mb-2 number-check" type="text" placeholder="Clothes Expenses">
+                <div class="flex justify-between mb-2" >
+                    <label for="input-food">Rent:</label>
+                    <input id="input-rent" class="pl-2 py-0.5 bg-slate-300 number-check rounded-md" type="text" placeholder="Rent Expenses">
+                </div>
+                <div class="flex justify-between mb-2" >
+                    <label for="input-food">Clothes:</label>
+                    <input id="input-clothes" class="pl-2 py-0.5 bg-slate-300 number-check rounded-md" type="text" placeholder="Clothes Expenses">
                 </div>
             </div>
-
-            <button id="calculate" class="my-4 bg-purple-500 text-slate-100 px-8 py-2 rounded-lg">Calculate</button>
-
-            <div class="flex font-semibold mb-4">
-                <p class="mr-4">Total Expenses:</p>
-                <p id="total-expenses">0</p>
-            </div>
-
-            <div class="flex font-semibold">
-                <p class="mr-4">Balance:</p>
-                <p id="balance">0</p>
-            </div>
-
-            <div class="flex mb-4 items-center">
-                <div class="flex">
-                    <p class="mr-4">Save:</p>
-                    <input id="input-save" class="pl-4 py-0.5 bg-slate-300" type="text" placeholder="Percentage Value">
+            <button id="calculate" class="m-auto bg-[#9FB26B] text-slate-100 px-8 py-2 rounded-lg hover:bg-emerald-500 mb-2">Calculate</button>
+            <div>
+                <div class="flex font-semibold mb-4">
+                    <p class="mr-4">Total Expenses:</p>
+                    <p id="total-expenses">0</p>
                 </div>
-                <div class="mx-2 text-xl">
+                <div class="flex font-semibold">
+                    <p class="mr-4">Balance:</p>
+                    <p id="balance">0</p>
+                </div>
+            </div>
+            <h3 class="text-xl col-span-3 text-center font-semibold mb-2">Savings</h3>
+            <div class="flex justify-between lg:my-auto mb-2">
+                <label for="input-save">Save:</label>
+                <input id="input-save" class="pl-4 py-0.5 bg-slate-300 rounded-md" type="text" placeholder="Percentage Value">
+                <div class="my-auto text-xl pl-2 lg:hidden">
                     <i class="fa-solid fa-percent"></i>
                 </div>
-                <div>
-                    <button id="save" class="bg-purple-500 text-slate-100 px-8 py-2 rounded-lg">Save</button>
+            </div>
+            <div class="flex justify-between my-auto">
+                <div class="my-auto text-xl pl-2 hidden lg:block">
+                    <i class="fa-solid fa-percent"></i>
+                </div>
+                <button id="save" class="bg-[#9FB26B] text-slate-100 px-12 py-2 lg:mr-16 rounded-lg hover:bg-emerald-500">Save</button>
+            </div>
+            <div>
+                <div class="flex font-semibold mb-4">
+                    <p class="mr-4">Saving Amount:</p>
+                    <p id="saving-amount">0</p>
+                </div>
+                <div class="flex font-semibold">
+                    <p class="mr-4">Remaining Balance:</p>
+                    <p id="remaining-balance">0</p>
                 </div>
             </div>
-
-            <div class="flex font-semibold mb-4">
-                <p class="mr-4">Saving Amount:</p>
-                <p id="saving-amount">0</p>
-            </div>
-
-            <div class="flex font-semibold">
-                <p class="mr-4">Remaining Balance:</p>
-                <p id="remaining-balance">0</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
